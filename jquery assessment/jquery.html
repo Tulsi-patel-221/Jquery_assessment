@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+      <title>Registration Form</title>
+    
+    <style>
+    *{
+    
+        box-sizing: border-box;
+    }
+    body{
+        background-color: rgba(128, 128, 128, 0.299);
+        font-size: 20px;
+    }
+   
+    </style>
+</head>
+<body>
+    
+     <table cellpadding="10px" cellspacing="20px">
+        <tr>
+    <form id="registrationForm">
+<td>
+        <label for="firstName" >First Name:</label>
+
+        </td>
+        <td>
+        <input type="text" id="firstName" name="firstName" placeholder="sdas" style="padding: 10px 100px 5px 150px;" maxlength="6">
+        </td>
+    </tr>
+        
+    <tr>
+        <td>
+        <label for="lastName">Last Name:</label>
+
+        </td>
+        <td>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name"  style="padding: 10px 100px 5px 150px;" maxlength="10"><br></td>
+        </tr>
+  
+<tr>
+     <td>
+        <label for="email">Email:</label>
+        </td>
+        <td>
+        <input type="email" id="email" name="email" placeholder="it should contain @.." style="padding: 10px 100px 5px 150px;" ><br>
+        </td>
+        </tr>
+  
+        <tr>
+          <td>  
+        <label for="mobile">Mobile:</label></td>
+        <td>
+        <input type="text" id="mobile" name="mobile" placeholder="only 10 digits are allowed"  style="padding: 10px 100px 5px 150px;" maxlength="10"><br>
+         </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                Gender:<Label for=""></Label></td>
+            <td> Male <input type="radio" name="abc" id="">
+                Female <input type="radio" name="abc" id="" > </td><br></br>
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+        <label for="Date of birth">Date of Birth:</label> </td>
+        <td>
+        <input type="date"  style="padding: 10px 150px 5px 150px;"><br>
+        </td>
+
+        </tr>
+
+
+        <tr>
+         <td>
+        <label for="">Address:</label>
+        </td>
+        <td>
+        <textarea name="" id="" cols="53px" rows="8px"></textarea ><br></br>
+</td>
+        </tr>
+
+
+        <tr>
+            <td>
+        <label for="">City:</label></td>
+        <td>
+        <input type="text"  style="padding: 10px 100px 5px 150px;"><BR></td>
+            </tr>
+
+            <tr>
+                <td>
+
+        <label for="">Area PIN:</label></td>
+        <td>
+        <input type="text" style="padding: 10px 100px 5px 150px;" maxlength="6"><br></td>
+        </tr>
+
+        <tr>
+ 
+            <td>
+
+        <label for="">State:</label></td>
+        <td>
+        <input type="text" style="padding: 10px 100px 5px 150px;"><br> </td>
+        </tr>
+            
+<tr>
+
+    <td>
+         <label for="">Qualification:</label></td>
+          
+         <td>
+                <select name="State" style="padding: 10px 50px 5px 60px;">
+                        <option value="select Qualification">select Qualification
+                        <option value="b.com">B.com
+                        <option value="b.tech">B.tech
+                        <option value="MCA">MCA
+                    </select  ><br><br>
+                </td>
+                    </tr>
+                 
+            <tr>
+                <td>
+         <Label for="">Specialization:</Label></td>
+         <td>
+         <input type="checkbox" name="" id="">Computer Science<br>
+         <input type="checkbox" name="" id="">Information Technology<br>
+         <input type="checkbox" name="" id="">Computer Architecure<br>
+         <input type="checkbox" name="" id="">Tele Communication<br></td>
+</tr>
+
+<tr>
+    <td>
+        <label for="">Password:</label></td>
+        <td>
+        <input type="password" style="padding: 10px 100px 5px 150px;"><br>
+        </td>
+        </tr>
+<tr>
+    <td>
+         <button type="submit" style="background-color: green; color: white; padding: 15px 50px;" >Register</button> 
+         </td>
+         </tr>
+    </form>
+
+   </table>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      
+        
+
+        $(document).ready(function(){
+            $('#registrationForm').on('submit', function(event) {
+                event.preventDefault();
+                let isValid = true;
+
+                
+                $('input[type="text"], input[type="email"], input[type="password"], textarea, select').each(function() {
+                    if ($(this).val() === '') {
+                        isValid = false;
+                        alert("Please enter your  " + $(this).attr('name') + "");
+                        return false;  
+                    }
+                });
+
+              
+                if (isValid) {
+                    alert("Registration successful!");
+                }
+
+
+            });
+        });
+    </script>
+</html>
